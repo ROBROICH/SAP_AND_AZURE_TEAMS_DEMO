@@ -64,5 +64,25 @@ This payload will be required in the Logic App pipeline to parse the JSON.
 3.	Search for “recurrence” and insert the corresponding trigger
 
 
-![Recurrence Trigger]( https://github.com/ROBROICH/SAP_ODP_ODATA_CLIENT/blob/master/ODP_CREATE_MODEL_1.png)
+![Recurrence Trigger]( https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Recurrence_Trigger.png)
+
+4.	Now insert search for HTTP and insert the corresponding action:
+
+![HTML ACTION](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/HTTP_ACTION.png)
+
+
+Implement the HTTP action to get the top 50 SalesOrders:
+
+```
+URI:  https://sapes5.sapdevce
+nter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=50
+
+Headers: 
+Accept : application/json;odata
+
+```
+
+![HTML ACTION](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/HTTP_ACTION_1.png)
+
+
 
