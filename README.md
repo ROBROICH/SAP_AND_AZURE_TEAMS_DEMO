@@ -132,3 +132,18 @@ Now the following code needs to be inserted as “Input” for the “Compose”
 }
 
 ```
+
+
+After the creation of the mappings for the JSON elements in the collection, each record needs to be added to the variable ArraySalesOrder within the “For each” action. To achieve this a “Append to array variable” needs to be added. The “value” will be the “Outputs” of “Compose”. 
+
+![FOREACH2](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/ForEach2.png)
+
+In order to create a formatted message in Teams we pass the “ArraySalesOrders” variable to a create HTML table 
+
+![HTMLTABLE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/HTML_TABLE.png)
+
+Finally add the result of the HTML table (“Output”) to a Teams “Post a message V(3)” action: 
+
+![TEAMSMESSAGE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/TEAMS_MESSAGE.png)
+
+
