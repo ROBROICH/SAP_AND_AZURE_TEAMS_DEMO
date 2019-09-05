@@ -85,4 +85,50 @@ Accept : application/json;odata
 ![HTML ACTION](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/HTTP_ACTION_1.png)
 
 
+Now add a Parse JSON action and execute the following steps:
+1.	Add the body output of the HTTP request
+2.	Maintain the JSON payload of former service call by copying the content of the file. 
 
+![PARSE_JSON](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/ParseJSON.png)
+
+The next step is to initialize a variable with the name ArraySalesOrder of the type array.
+The variable is used to store each line of the parsed JSON resultset. 
+
+![Variable](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/InitializeVariable.png)
+
+After creating the variable a “For each” control is required.
+Input for the for each statement is the variable “results” from “Parse JSON”
+
+The next step is to embed a “Compose” action 
+
+![FOREACH](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/ForEach1.png)
+
+
+In addition, a “Compose” action has to inserted into the “For each” element.
+
+Now the following code needs to be inserted as “Input” for the “Compose” action:
+
+```
+{
+    "inputs": {
+        "BillingStatus": "@{items('For_each')?['BillingStatus']}",
+        "BillingStatusDescription": "@{items('For_each')?['BillingStatusDescription']} ",
+        "ChangedAt": "@{items('For_each')?['ChangedAt']}",
+        "CreatedAt": "@{items('For_each')?['CreatedAt']}",
+        "CurrencyCode": "@{items('For_each')?['CurrencyCode']}",
+        "CustomerID": "@{items('For_each')?['CustomerID']}",
+        "CustomerName": "@{items('For_each')?['CustomerName']}",
+        "DeliveryStatus": "@{items('For_each')?['DeliveryStatus']}",
+        "DeliveryStatusDescription": "@{items('For_each')?['DeliveryStatusDescription']}",
+        "GrossAmount": "@{items('For_each')?['GrossAmount']}",
+        "LifecycleStatus": "@{items('For_each')?['LifecycleStatus']}",
+        "LifecycleStatusDescription": "@{items('For_each')?['LifecycleStatusDescription']}",
+        "NetAmount": "@{items('For_each')?['NetAmount']}",
+        "Note": "",
+        "NoteLanguage": "@{items('For_each')?['NoteLanguage']}",
+        "SalesOrderID": "@{items('For_each')?['SalesOrderID']}",
+        "TaxAmount": "@{items('For_each')?['TaxAmount']}"
+    }
+}
+
+```
