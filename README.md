@@ -8,13 +8,17 @@ To make this demo reproducible, the public SAP Gateway demo system [E5]( https:/
 
 Ideally this first demo is an inspiration for more advanced Modern Workplace integration demos, creating a Teams based chatbot to communicate with SAP would be the first idea. 
 
+![Architecture]( https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Architekture.png)
+
+
+
  
 # Prerequisites 
 
 Optional: 
 
-For testing the SAP OData-services my recommendation is to utilize Visual Studio Code and the corresponding .
-[REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+For testing the SAP OData-services my recommendation is to utilize Visual Studio Code and the corresponding
+[REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
 
 Basic knowledge how to install Visual Studio Code and the corresponding REST client extension is a prerequisite. 
@@ -44,11 +48,21 @@ To call the service from the REST Client the following command is required:
 GET https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=100  HTTP/1.1
 Authorization: Basic YOURUSER YOURPWD
 Accept: application/json;odata=verbose
+```
+
 
 Attention, there is a blank between the username and password!
 
 After executing the GET command the payload for the sales order will be returned. 
 This payload will be required in the Logic App pipeline to parse the JSON. 
-```
 
+
+# Creating the Logic App
+
+1.	The first step is to create a Logic App with the name LAP_SAP_TEAMS_SALESORDER
+2.	Create blank app
+3.	Search for “recurrence” and insert the corresponding trigger
+
+
+![Recurrence Trigger]( https://github.com/ROBROICH/SAP_ODP_ODATA_CLIENT/blob/master/ODP_CREATE_MODEL_1.png)
 
