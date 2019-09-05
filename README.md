@@ -12,6 +12,7 @@ Ideally this first demo is an inspiration for more advanced Modern Workplace int
 # Prerequisites 
 
 Optional: 
+
 For testing the SAP OData-services my recommendation is to utilize Visual Studio Code and the corresponding .
 [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
@@ -28,4 +29,26 @@ As well as user for the SAP community is required and can be registered [here](h
 This SAP community user is the prerequisite to register aE5 demo system user. 
 
 Basic knowledge how to create an empty Logic App as a prerequisite too since this is not coved in this tutorial. 
+
+
+# Working with the sales orders service 
+For this demo, the SalesOrderSet OData service will be utilized to display data in Teams:
+https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet
+
+For testing purposes, the service can be consumed via the browser. 
+The service returns set of sales orders.
+To call the service from the REST Client the following command is required:
+
+```
+# @name getSalesOrders
+GET https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=100  HTTP/1.1
+Authorization: Basic YOURUSER YOURPWD
+Accept: application/json;odata=verbose
+
+Attention, there is a blank between the username and password!
+
+After executing the GET command the payload for the sales order will be returned. 
+This payload will be required in the Logic App pipeline to parse the JSON. 
+```
+
 
