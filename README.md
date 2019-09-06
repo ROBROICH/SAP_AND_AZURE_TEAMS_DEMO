@@ -6,7 +6,7 @@ This can be conveniently achieved by consuming OData-services of the SAP Netweav
 To make this demo easily reproducible, the public SAP Gateway demo system [E5]( https://blogs.sap.com/2017/12/05/new-sap-gateway-demo-system-available/) is used. 
 
 Ideally this first demo is an inspiration for more advanced Microsoft Modern Workplace integration demos. 
-For example creating a Teams based chatbot to communicate with SAP would be one potential scenario. 
+For example creating a Teams based chatbot to communicate with SAP would be one potential scenario. Pushing [SAP S/4HANA Cloud Business Events](https://api.sap.com/package/SAPS4HANACloudBusinessEvents?section=Artifacts) to Teams could be a relevatnt scenario too. 
 
 The completed Logic App can be found [here](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/LogicApp.txt) 
 
