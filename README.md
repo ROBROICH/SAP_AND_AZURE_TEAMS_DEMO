@@ -34,7 +34,7 @@ Basic knowledge how to create a Logic App as a prerequisite, since this is not c
 For this demo, the SalesOrderSet OData service of the SAP Gateway Demo System will be utilized to display data in Teams:
 https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet
 
-For testing purposes, the service can be consumed via the browser. 
+For testing purposes, the service can be consumed via the browser by clicking on the URL. 
 The service returns set of sales orders.
 To call the service from the REST Client the following command is required:
 
@@ -58,7 +58,6 @@ This payload will be required in the Logic App pipeline to parse the JSON.
 2.	Create blank app
 3.	Search for “recurrence” and insert the corresponding trigger
 
-
 ![Recurrence Trigger]( https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Recurrence_Trigger.png)
 
 4.	Now insert search for HTTP and insert the corresponding action:
@@ -75,6 +74,8 @@ nter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=50
 Headers: 
 Accept : application/json;odata
 
+Authentication: Basic + Your user and pwd for the E5 demosystem
+
 ```
 
 ![HTML ACTION](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/HTTP_ACTION_1.png)
@@ -82,12 +83,12 @@ Accept : application/json;odata
 
 Now add a Parse JSON action and execute the following steps:
 1.	Add the body output of the HTTP request
-2.	Maintain the JSON payload of former service call by copying the content of the file. 
+2.	Maintain the JSON payload of former service call by copying the [content](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/JSON_Payload.txt) of the file. 
 
 ![PARSE_JSON](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/ParseJSON.png)
 
 The next step is to initialize a variable with the name ArraySalesOrder of the type array.
-The variable is used to store each line of the parsed JSON resultset. 
+The variable is used to store each row or sales order of the parsed JSON resultset. 
 
 ![Variable](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/InitializeVariable.png)
 
