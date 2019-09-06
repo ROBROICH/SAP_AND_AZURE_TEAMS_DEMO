@@ -1,0 +1,315 @@
+{
+    "$connections": {
+        "value": {
+            "office365": {
+                "connectionId": "/subscriptions//resourceGroups/RG_SAP_DEMOS/providers/Microsoft.Web/connections/office365-1",
+                "connectionName": "office365-1",
+                "id": "/subscriptions//providers/Microsoft.Web/locations/westeurope/managedApis/office365"
+            },
+            "teams": {
+                "connectionId": "//resourceGroups/RG_SAP_DEMOS/providers/Microsoft.Web/connections/teams",
+                "connectionName": "teams",
+                "id": "/subscriptions//providers/Microsoft.Web/locations/westeurope/managedApis/teams"
+            }
+        }
+    },
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Create_HTML_table": {
+                "inputs": {
+                    "format": "HTML",
+                    "from": "@variables('ArraySalesOrders')"
+                },
+                "runAfter": {
+                    "For_each": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Table"
+            },
+            "For_each": {
+                "actions": {
+                    "Append_to_array_variable": {
+                        "inputs": {
+                            "name": "ArraySalesOrders",
+                            "value": "@outputs('Compose')"
+                        },
+                        "runAfter": {
+                            "Compose": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "AppendToArrayVariable"
+                    },
+                    "Compose": {
+                        "inputs": {
+                            "BillingStatus": "@{items('For_each')?['BillingStatus']}",
+                            "BillingStatusDescription": "@{items('For_each')?['BillingStatusDescription']} ",
+                            "ChangedAt": "@{items('For_each')?['ChangedAt']}",
+                            "CreatedAt": "@{items('For_each')?['CreatedAt']}",
+                            "CurrencyCode": "@{items('For_each')?['CurrencyCode']}",
+                            "CustomerID": "@{items('For_each')?['CustomerID']}",
+                            "CustomerName": "@{items('For_each')?['CustomerName']}",
+                            "DeliveryStatus": "@{items('For_each')?['DeliveryStatus']}",
+                            "DeliveryStatusDescription": "@{items('For_each')?['DeliveryStatusDescription']}",
+                            "GrossAmount": "@{items('For_each')?['GrossAmount']}",
+                            "LifecycleStatus": "@{items('For_each')?['LifecycleStatus']}",
+                            "LifecycleStatusDescription": "@{items('For_each')?['LifecycleStatusDescription']}",
+                            "NetAmount": "@{items('For_each')?['NetAmount']}",
+                            "Note": "",
+                            "NoteLanguage": "@{items('For_each')?['NoteLanguage']}",
+                            "SalesOrderID": "@{items('For_each')?['SalesOrderID']}",
+                            "TaxAmount": "@{items('For_each')?['TaxAmount']}"
+                        },
+                        "runAfter": {},
+                        "type": "Compose"
+                    }
+                },
+                "foreach": "@body('Parse_JSON')?['d']?['results']",
+                "runAfter": {
+                    "Initialize_variable": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Foreach"
+            },
+            "HTTP": {
+                "inputs": {
+                    "authentication": {
+                        "password": YOURPWD,
+                        "type": "Basic",
+                        "username": YOURUSERNAME
+                    },
+                    "headers": {
+                        "Accept": "application/json;odata=verbose"
+                    },
+                    "method": "GET",
+                    "uri": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=50"
+                },
+                "runAfter": {},
+                "type": "Http"
+            },
+            "Initialize_variable": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "ArraySalesOrders",
+                            "type": "Array"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Parse_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Parse_JSON": {
+                "inputs": {
+                    "content": "@body('HTTP')",
+                    "schema": {
+                        "properties": {
+                            "d": {
+                                "properties": {
+                                    "results": {
+                                        "items": {
+                                            "properties": {
+                                                "BillingStatus": {
+                                                    "type": "string"
+                                                },
+                                                "BillingStatusDescription": {
+                                                    "type": "string"
+                                                },
+                                                "ChangedAt": {
+                                                    "type": "string"
+                                                },
+                                                "CreatedAt": {
+                                                    "type": "string"
+                                                },
+                                                "CurrencyCode": {
+                                                    "type": "string"
+                                                },
+                                                "CustomerID": {
+                                                    "type": "string"
+                                                },
+                                                "CustomerName": {
+                                                    "type": "string"
+                                                },
+                                                "DeliveryStatus": {
+                                                    "type": "string"
+                                                },
+                                                "DeliveryStatusDescription": {
+                                                    "type": "string"
+                                                },
+                                                "GrossAmount": {
+                                                    "type": "string"
+                                                },
+                                                "LifecycleStatus": {
+                                                    "type": "string"
+                                                },
+                                                "LifecycleStatusDescription": {
+                                                    "type": "string"
+                                                },
+                                                "NetAmount": {
+                                                    "type": "string"
+                                                },
+                                                "Note": {
+                                                    "type": "string"
+                                                },
+                                                "NoteLanguage": {
+                                                    "type": "string"
+                                                },
+                                                "SalesOrderID": {
+                                                    "type": "string"
+                                                },
+                                                "TaxAmount": {
+                                                    "type": "string"
+                                                },
+                                                "ToBusinessPartner": {
+                                                    "properties": {
+                                                        "__deferred": {
+                                                            "properties": {
+                                                                "uri": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "ToLineItems": {
+                                                    "properties": {
+                                                        "__deferred": {
+                                                            "properties": {
+                                                                "uri": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "__metadata": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "uri": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "required": [
+                                                "__metadata",
+                                                "SalesOrderID",
+                                                "Note",
+                                                "NoteLanguage",
+                                                "CustomerID",
+                                                "CustomerName",
+                                                "CurrencyCode",
+                                                "GrossAmount",
+                                                "NetAmount",
+                                                "TaxAmount",
+                                                "LifecycleStatus",
+                                                "LifecycleStatusDescription",
+                                                "BillingStatus",
+                                                "BillingStatusDescription",
+                                                "DeliveryStatus",
+                                                "DeliveryStatusDescription",
+                                                "CreatedAt",
+                                                "ChangedAt",
+                                                "ToBusinessPartner",
+                                                "ToLineItems"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "HTTP": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Post_a_message_(V3)": {
+                "inputs": {
+                    "body": {
+                        "body": {
+                            "content": "<p><span style=\"font-size: 18px\"><strong>SAP with Azure !<br>\n<br>\n</strong></span><span style=\"font-size: 18px\"><strong>@{body('Create_HTML_table')}</strong></span><span style=\"font-size: 18px\"><strong></strong></span></p>",
+                            "contentType": "html"
+                        }
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['teams']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/v3/beta/teams/@{encodeURIComponent('1a819e0e-fd4e-418d-bc26-feb271338769')}/channels/@{encodeURIComponent('19:4caf96d8790d4ce7937d28516367b771@thread.skype')}/messages"
+                },
+                "runAfter": {
+                    "Create_HTML_table": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "Send_an_email_(V2)": {
+                "inputs": {
+                    "body": {
+                        "Body": "<p><span style=\"font-family: arial; font-size: 14px\">Send a mail from SAP !<br>\n<br>\n</span><span style=\"font-family: arial; font-size: 14px\">@{body('Create_HTML_table')}</span><span style=\"font-family: arial; font-size: 14px\"></span></p>",
+                        "Subject": "SAP with Azure!",
+                        "To": "nodbody@microsoft.com"
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['office365']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/v2/Mail"
+                },
+                "runAfter": {
+                    "Post_a_message_(V3)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "Recurrence": {
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                },
+                "type": "Recurrence"
+            }
+        }
+    }
+}
