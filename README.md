@@ -8,6 +8,8 @@ To make this demo easily reproducible, the public SAP Gateway demo system [E5]( 
 Ideally this first demo is an inspiration for more advanced Microsoft Modern Workplace integration demos. 
 For example creating a Teams based chatbot to communicate with SAP would be one scenario. 
 
+The completed Logic App can be found [here](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/LogicApp.txt) 
+
 ![Architecture]( https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Architekture.png)
  
 # Prerequisites 
