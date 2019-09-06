@@ -143,9 +143,12 @@ The next step is to add the result of the HTML table (“Output”) to a Teams �
 
 ![TEAMSMESSAGE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/TEAMS_MESSAGE.png)
 
+The result in Teams will look like:
+![TEAMSDISPLAY](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/TEAMS_DISPLAY.png)
+
 Finally a "Send an email (V2)" Outlook 365 action can utilizes to send the SAP sales order as e-mail:
 
-![TEAMSMESSAGE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Outlook365.png)
+![OUTLOOK365](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Outlook365.png)
 
 # Summary:
 The intention of the tutorial was to demonstrate the easy integration of SAP data with Microsoft Teams or Outlook365. The Logic App and the dataflow is implemented in and graphical and therefore in a highly maintainable and reproducible fashion. Finally, no deep programming skills were required to implement this scenario. Next to the public SAP E5 demo-system, the  
