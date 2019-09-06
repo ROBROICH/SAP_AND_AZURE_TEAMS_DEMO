@@ -2,14 +2,14 @@
     "$connections": {
         "value": {
             "office365": {
-                "connectionId": "/subscriptions//resourceGroups/RG_SAP_DEMOS/providers/Microsoft.Web/connections/office365-1",
+                "connectionId": "",
                 "connectionName": "office365-1",
-                "id": "/subscriptions//providers/Microsoft.Web/locations/westeurope/managedApis/office365"
+                "id": ""
             },
             "teams": {
-                "connectionId": "//resourceGroups/RG_SAP_DEMOS/providers/Microsoft.Web/connections/teams",
+                "connectionId": ",
                 "connectionName": "teams",
-                "id": "/subscriptions//providers/Microsoft.Web/locations/westeurope/managedApis/teams"
+                "id": ""
             }
         }
     },
