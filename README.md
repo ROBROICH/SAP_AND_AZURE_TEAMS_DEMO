@@ -6,7 +6,7 @@ This can be conveniently achieved by consuming OData-services of the SAP Netweav
 To make this demo easily reproducible, the public SAP Gateway demo system [E5]( https://blogs.sap.com/2017/12/05/new-sap-gateway-demo-system-available/) is used. 
 
 Ideally this first demo is an inspiration for more advanced Microsoft Modern Workplace integration demos. 
-For exmaple creating a Teams based chatbot to communicate with SAP would be one idea. 
+For examaple creating a Teams based chatbot to communicate with SAP would be one idea. 
 
 ![Architecture]( https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Architekture.png)
  
@@ -135,12 +135,16 @@ After the creation of the mappings for the JSON elements in the collection, each
 
 ![FOREACH3](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/ForEach3.png)
 
-In order to create a formatted message in Teams we pass the “ArraySalesOrders” variable to a create HTML table 
+In order to create a formatted message in Teams we pass the “ArraySalesOrders” variable to a "Ceate HTML Table" action.
 
 ![HTMLTABLE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/HTML_TABLE.png)
 
-Finally add the result of the HTML table (“Output”) to a Teams “Post a message V(3)” action: 
+The next step is to add the result of the HTML table (“Output”) to a Teams “Post a message V(3)” action: 
 
 ![TEAMSMESSAGE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/TEAMS_MESSAGE.png)
+
+Finally a "Send an email (V2)" Outlook 365 action can utilizes to send the SAP sales order as e-mail:
+
+![TEAMSMESSAGE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Outlook365.png)
 
 
