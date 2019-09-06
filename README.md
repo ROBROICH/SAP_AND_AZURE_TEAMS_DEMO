@@ -6,7 +6,7 @@ This can be conveniently achieved by consuming OData-services of the SAP Netweav
 To make this demo easily reproducible, the public SAP Gateway demo system [E5]( https://blogs.sap.com/2017/12/05/new-sap-gateway-demo-system-available/) is used. 
 
 Ideally this first demo is an inspiration for more advanced Microsoft Modern Workplace integration demos. 
-For examaple creating a Teams based chatbot to communicate with SAP would be one idea. 
+For example creating a Teams based chatbot to communicate with SAP would be one scenario. 
 
 ![Architecture]( https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Architekture.png)
  
@@ -14,7 +14,7 @@ For examaple creating a Teams based chatbot to communicate with SAP would be one
 
 Optional: 
 
-For testing the SAP OData-services my recommendation is to utilize Visual Studio Code and the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) for VS Code.
+For testing the SAP OData-services the recommendation is to utilize Visual Studio Code and the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) for VS Code.
 
 
 Basic knowledge how to install Visual Studio Code and the corresponding REST client extension is a prerequisite. 
@@ -24,7 +24,7 @@ To implement this demo Visual Studio Code is not mandatory, the generated payloa
 
 Mandatory: 
 
-For implementing the demo, a user for the SAP community is required and can be registered [here](https://www.sap.com/community/resources/registration-and-profile.html). 
+For implementing the demo an user for the SAP community is required and can be registered [here](https://www.sap.com/community/resources/registration-and-profile.html). 
 
 This SAP community user is the prerequisite to register a [E5](https://blogs.sap.com/2017/12/05/new-sap-gateway-demo-system-available/) demo system user. 
 
@@ -146,5 +146,10 @@ The next step is to add the result of the HTML table (“Output”) to a Teams �
 Finally a "Send an email (V2)" Outlook 365 action can utilizes to send the SAP sales order as e-mail:
 
 ![TEAMSMESSAGE](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/Outlook365.png)
+
+# Summary:
+The intention of the tutorial was to demonstrate the easy integration of SAP data with Microsoft Teams or Outlook365. The Logic App and the dataflow is implemented in and graphical and therefore in a highly maintainable and reproducible fashion. Finally, no deep programming skills were required to implement this scenario. Next to the public SAP E5 demo-system, the  
+[SAP API Business Hub](https://api.sap.com/) and [Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) provide countless options to integrate the Intelligent Cloud and the Intelligent Enterprise. 
+
 
 
