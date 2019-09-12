@@ -74,7 +74,7 @@ URI:  https://sapes5.sapdevce
 nter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=50
 
 Headers: 
-Accept : application/json;odata
+Accept : application/json;odata=verbose
 
 Authentication: Basic + Your user and pwd for the E5 demosystem
 
