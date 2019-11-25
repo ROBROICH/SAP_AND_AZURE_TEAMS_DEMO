@@ -108,7 +108,6 @@ As next step this code needs to be inserted as “Inputs” for the “Compose�
 
 ```
 {
-    "inputs": {
         "BillingStatus": "@{items('For_each')?['BillingStatus']}",
         "BillingStatusDescription": "@{items('For_each')?['BillingStatusDescription']} ",
         "ChangedAt": "@{items('For_each')?['ChangedAt']}",
@@ -126,7 +125,6 @@ As next step this code needs to be inserted as “Inputs” for the “Compose�
         "NoteLanguage": "@{items('For_each')?['NoteLanguage']}",
         "SalesOrderID": "@{items('For_each')?['SalesOrderID']}",
         "TaxAmount": "@{items('For_each')?['TaxAmount']}"
-    }
 }
 
 ```
