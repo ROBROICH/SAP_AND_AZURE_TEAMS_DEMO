@@ -70,8 +70,8 @@ This payload will be required in the Logic App pipeline to parse the JSON.
 Implement the HTTP action to get the top 50 SalesOrders:
 
 ```
-URI:  https://sapes5.sapdevce
-nter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=50
+URI:  
+https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$top=50
 
 Headers: 
 Accept : application/json;odata=verbose
