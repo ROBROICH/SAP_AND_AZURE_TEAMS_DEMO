@@ -153,5 +153,8 @@ Finally a "Send an email (V2)" Outlook 365 action can utilizes to send the SAP s
 # Summary:
 The intention of the tutorial was to demonstrate the easy integration of SAP data with Microsoft Teams or Outlook365. The Logic App and the dataflow is implemented in a graphical and therefore in a highly maintainable and reproducible fashion. Finally, no deep programming skills were required to implement this scenario. Next to the public SAP E5 demo-system, the [SAP API Business Hub](https://api.sap.com/) and [Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) provide countless options to integrate the Intelligent Cloud and the Intelligent Enterprise. 
 
+Update: 
+The layout and of the SAP data displayed in Teams has been improved by using an [Adaptive Card](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/LogicApp_AdaptiveCard.txt)
+
 
 
