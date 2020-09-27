@@ -157,4 +157,9 @@ Update:
 The layout and of the SAP data displayed in Teams has been improved by using an [Adaptive Card](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/LogicApp_AdaptiveCard.txt)
 
 
+![ADAPTIVE_CARD](https://github.com/ROBROICH/SAP_AND_AZURE_TEAMS_DEMO/blob/master/AdaptiveCard.png)
+
+
+
+
 
